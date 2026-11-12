@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catch the Meatball - Live Game</title>
+    
+    <!-- Memuat CSS dan Core PyScript terbaru -->
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+
+    <style>
+        body {
+            background-color: #0a0a19;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #ffcc00;
+            margin-bottom: 5px;
+        }
+        p {
+            color: #cccccc;
+            font-size: 14px;
+        }
+        #loading {
+            color: #ffcc00;
+            font-size: 18px;
+            margin-top: 50px;
+            font-weight: bold;
+        }
+        #game-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Catch the Meatball</h1>
+    <p>Gunakan tombol panah <b>Kiri / Kanan</b> atau <b>A / D</b> di keyboard untuk menggerakkan mangkok.</p>
+
+    <!-- Teks indikator loading saat PyScript menyiapkan Pygame -->
+    <div id="loading">Memuat Game & Library Pygame, mohon tunggu sebentar...</div>
+
+    <div id="game-container">
+        <!-- Menjalankan script Python utama -->
+        <script type="py" src="./main.py" config="./pyscript.json"></script>
+    </div>
+
+    <script>
+        // Otomatis menghilangkan teks loading setelah game mulai dirender
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const loader = document.getElementById('loading');
+                if (loader) loader.style.display = 'none';
+            }, 6000); // 6 detik waktu estimasi unduh Pygame
+        });
+    </script>
+
+</body>
+</html>
